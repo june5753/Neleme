@@ -1,6 +1,5 @@
 package com.k.neleme;
 
-import android.app.ActivityOptions;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -24,11 +23,9 @@ import android.widget.TextView;
 import com.github.florent37.viewanimator.ViewAnimator;
 import com.k.neleme.Views.AddWidget;
 import com.k.neleme.Views.ShopCarView;
-import com.k.neleme.Views.ShopInfoContainer;
 import com.k.neleme.adapters.CarAdapter;
 import com.k.neleme.bean.FoodBean;
 import com.k.neleme.behaviors.AppBarBehavior;
-import com.k.neleme.detail.ShopDetailActivity;
 import com.k.neleme.fragments.FirstFragment;
 import com.k.neleme.fragments.SecondFragment;
 import com.k.neleme.utils.ViewUtils;
@@ -115,8 +112,7 @@ public class MainActivity extends BaseActivity implements AddWidget.OnAddClick {
         shopCarView = (ShopCarView) findViewById(R.id.car_mainfl);
         View blackView = findViewById(R.id.blackview);
         shopCarView.setBehavior(behavior, blackView);
-        RecyclerView carRecView = (RecyclerView) findViewById(R.id.car_recyclerview);
-//		carRecView.setNestedScrollingEnabled(false);
+        RecyclerView carRecView = findViewById(R.id.car_recyclerview);
         carRecView.setLayoutManager(new LinearLayoutManager(mContext));
         ((DefaultItemAnimator) carRecView.getItemAnimator()).setSupportsChangeAnimations(false);
         carAdapter = new CarAdapter(new ArrayList<FoodBean>(), this);
@@ -125,7 +121,7 @@ public class MainActivity extends BaseActivity implements AddWidget.OnAddClick {
 
     private void initViewpager() {
         scroll_container = findViewById(R.id.scroll_container);
-        ScrollIndicatorView mSv = (ScrollIndicatorView) findViewById(R.id.indicator);
+        ScrollIndicatorView mSv = findViewById(R.id.indicator);
         ColorBar colorBar = new ColorBar(mContext, ContextCompat.getColor(mContext, R.color.dicator_line_blue), 6,
                 ScrollBar.Gravity.BOTTOM);
         colorBar.setWidth(ViewUtils.dip2px(mContext, 30));
@@ -133,7 +129,7 @@ public class MainActivity extends BaseActivity implements AddWidget.OnAddClick {
         mSv.setSplitAuto(false);
         mSv.setOnTransitionListener(new OnTransitionTextListener().setColor(ContextCompat.getColor(mContext, R.color.dicator_line_blue),
                 ContextCompat.getColor(mContext, R.color.black)));
-        ViewPager mViewPager = (ViewPager) findViewById(R.id.viewpager);
+        ViewPager mViewPager = findViewById(R.id.viewpager);
         IndicatorViewPager indicatorViewPager = new IndicatorViewPager(mSv, mViewPager);
         firstFragment = new FirstFragment();
         ViewpagerAdapter myAdapter = new ViewpagerAdapter(getSupportFragmentManager());

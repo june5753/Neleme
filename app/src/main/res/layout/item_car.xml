@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:background="@drawable/ripple_bg"
-              android:clickable="true"
-              android:orientation="vertical"
-              android:paddingLeft="16dp"
-              android:paddingRight="16dp">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/ripple_bg"
+    android:focusable="true"
+    android:orientation="vertical"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -18,26 +19,28 @@
             android:id="@+id/car_name"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginRight="8dp"
+            android:layout_marginEnd="8dp"
             android:layout_weight="1"
             android:maxLines="1"
+            android:textSize="16sp"
             android:textColor="#757575"
-            android:textSize="16sp"/>
+            tools:text="dddd" />
 
         <TextView
             android:id="@+id/car_price"
-            android:layout_marginRight="16dp"
-            style="@style/tv_price"/>
+            style="@style/tv_price"
+            android:layout_marginEnd="16dp"
+            tools:text="￥45.4" />
 
         <com.k.neleme.Views.AddWidget
             android:id="@+id/car_addwidget"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content" />
     </LinearLayout>
 
     <View
         android:layout_width="match_parent"
         android:layout_height="1px"
-        android:background="#dddddd"/>
+        android:background="#dddddd" />
 
 </LinearLayout>
